@@ -1,4 +1,4 @@
-import pokedexLogo from '../assets/shared/pokedexLogo.png';
+import pokedexLogo from '../../assets/shared/pokedexLogo.png'
 import "./Header.css"
 
 function clickHandler(){
