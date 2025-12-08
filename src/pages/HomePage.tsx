@@ -54,11 +54,7 @@ export default function HomePage(){
 
             <div className="pokemon-grid">
                 {displayedPokemons.map(p => (
-                <div key={p.id} className="pokemon-card">
-                    <p>#{String(p.id).padStart(3, "0")}</p>
-                    <img src={p.image} alt={p.name} />
-                    <h3>{p.name}</h3>
-                </div>
+                <PokemonCard key={p.id} pokemon={p} />
                 ))}
                 </div>
             <div className="load-more-wrapper">
