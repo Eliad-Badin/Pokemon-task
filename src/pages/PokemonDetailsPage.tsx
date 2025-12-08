@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getPokemonDetails, getPokemonSpeicies } from "../services/api/PokemonApi";
 import type { PokemonDetailsResponse, PokemonSpeciesResponse, PokemonFullInfo } from "../types/PokemonTypes";
 import PokemonDetailsCard from "../components/PokemonDetailsCard/PokemonDetailsCard";
+import Header from "../components/Header/Header";
 
 export default function PokemonDetailsPage () {
     const { id } = useParams();
@@ -74,6 +75,7 @@ export default function PokemonDetailsPage () {
 
     return (
         <div>
+            <Header />
             <Link to="/" className="back-link">
                 ← Home page
             </Link>
