@@ -13,6 +13,16 @@ export default function HomePage(){
     const limit = 12;
     const[isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const displayedPokemons = pokemons.filter(p => {
+        const term = searchTerm.toLowerCase();
+        const matchByName = p.name.toLowerCase().includes(term);
+        const matchById = String(p.id).includes(term);
+        const matchByType = p.types.some(t => t.toLowerCase().includes(term));
+        
+        return matchByName || matchById || matchByType;
+    });
 
     useEffect(() => {
         if (!initialLoad.current){
@@ -39,11 +49,11 @@ export default function HomePage(){
         <div className="home-container">
             <Header />
             <div className="home-content">
-                <SearchBar />
+                <SearchBar onSearch={setSearchTerm} />
 
 
             <div className="pokemon-grid">
-                {pokemons.map(p => (
+                {displayedPokemons.map(p => (
                 <div key={p.id} className="pokemon-card">
                     <p>#{String(p.id).padStart(3, "0")}</p>
                     <img src={p.image} alt={p.name} />
