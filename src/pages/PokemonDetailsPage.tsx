@@ -4,6 +4,7 @@ import { getPokemonDetails, getPokemonSpeicies } from "../services/api/PokemonAp
 import type { PokemonDetailsResponse, PokemonSpeciesResponse, PokemonFullInfo } from "../types/PokemonTypes";
 import PokemonDetailsCard from "../components/PokemonDetailsCard/PokemonDetailsCard";
 import Header from "../components/Header/Header";
+import "./PokemonDetailsPage.css";
 
 export default function PokemonDetailsPage () {
     const { id } = useParams();
