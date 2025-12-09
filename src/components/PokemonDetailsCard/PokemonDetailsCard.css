@@ -51,16 +51,19 @@
     width: 337px;
     height: 291px;
     margin-top: 25px;
+    width: 100%;
     margin-left: 0;
     object-fit: cover;
     object-position: center;
     image-rendering: pixelated;
+    object-fit: contain;
 }
 
 .details-name{
     font-size: 32px;
     line-height: 100%;
     color: #373299;
+    font-family: "Roboto", sans-serif;
 }
 
 .types-row{

@@ -12,9 +12,9 @@ export default function PokemonCard({pokemon} : PokemonCardProps) {
     to={`/pokemon/${pokemon.id}`}
     className="card-link" >
         <div className="pokemon-card">
-        <p>#{String(pokemon.id).padStart(3, "0")}</p>
-        <img src={pokemon.image} alt={pokemon.name} />
-        <h3>{pokemon.name}</h3>
+            <p className="pokemon-id">#{String(pokemon.id).padStart(3, "0")}</p>
+            <img src={pokemon.image} alt={pokemon.name} className="pokemon-image" />
+            <h3 className="pokemon-name">{pokemon.name}</h3>
         </div>
     </Link>
   );

@@ -24,11 +24,18 @@
   display: block;
   padding: 10px 15px;
   border-radius: 10px;
-  background-color: #0a1a73;
-  color: white;
+  border: 1px solid rgba(55, 50, 153, 1);
+  color: rgba(55, 50, 153, 1);
   cursor: pointer;
-  border: none;
-  font-size: 14px;
+  font-size: 18px;
+  align-content: center;
+  margin-top: 20px;
+  width: 150px;
+  background-color: white;
+  
+  
+
+
 }
 
 .load-more-btn:hover {
