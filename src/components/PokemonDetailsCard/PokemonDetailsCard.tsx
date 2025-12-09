@@ -52,16 +52,15 @@ export default function PokemonDetailsCard({
                     <h3>Description</h3>
                     <p className="description-text">{pokemon.description}</p>
 
-                    <h3>Stats</h3>
+                    <h3 className="stats-title">Stats</h3>
                     <div className="stats-grid">
                         {pokemon.stats.map((stat) => (
-                            <p key={stat.name}>
+                            <p key={stat.name} className="stats-single">
                                 {stat.name}:  {stat.value}
                             </p>
                         ))}
-
-                        <p className="total-stats">
-                            <strong>Total:</strong> {pokemon.totalStats}
+                        <p className="stats-single">
+                            Total: {pokemon.totalStats}
                         </p>
                     </div>
                 </div>

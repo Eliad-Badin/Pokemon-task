@@ -58,7 +58,7 @@ export default function HomePage(){
                 ))}
                 </div>
             <div className="load-more-wrapper">
-                <button onClick={loadMorePokemons} disabled={isLoading}>
+                <button onClick={loadMorePokemons} disabled={isLoading} className="load-more-btn">
                 {isLoading ? "Loading..." : "Load more..."}
                 </button>
             </div>

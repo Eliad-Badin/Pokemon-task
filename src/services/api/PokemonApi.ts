@@ -34,9 +34,10 @@ export async function getPokemonSpeicies (idOrName: string | number): Promise<Po
 }
 
 function mapToSimplePokemon(details: PokemonDetailsResponse): SimplePokemon {
-    const image = 
-    details.sprites.other?.["official-artwork"]?.front_default ?? 
-    details.sprites.front_default ?? "";
+    const image =
+        details.sprites.front_default ??
+        details.sprites.other?.["official-artwork"]?.front_default ??
+        "";
 
     return {
         id: details.id,
@@ -63,9 +64,11 @@ function mapToPokemonFullInfo(
 
     const totalStats = stats.reduce((sum, s) => sum + s.value, 0);
 
-    const image = 
-    details.sprites.other?.["official-artwork"]?.front_default ?? 
-    details.sprites.front_default ?? "";
+    
+    const image =
+        details.sprites.front_default ??
+        details.sprites.other?.["official-artwork"]?.front_default ??
+        "";
 
     return {
         id: details.id,
