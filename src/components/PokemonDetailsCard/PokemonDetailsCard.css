@@ -7,8 +7,8 @@
     padding: 20px 30px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     font-family: "Arial", sans-serif;
-    margin-top: 100px;
-    margin-left: 30px
+    margin-top: 20px;
+    margin-left: 70px
 }
 
 .details-header{
@@ -16,10 +16,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    margin: 0;
 }
 
 .pokemon-id{
     color: #373299;
+    margin: 0;
 
 }
 
@@ -64,18 +66,25 @@
     line-height: 100%;
     color: #373299;
     font-family: "Roboto", sans-serif;
+    margin: 3px;
 }
 
 .types-row{
     display: flex;
     gap: 10px;
+    margin-top: 5px;;
 }
 
 .type-badge{
     padding: 4px 12px;
     border-radius: 9px;
     color: white;
-    font-size: 13px;
+    font-size: 22px;
+    line-height: 100%;
+    text-align: center;
+    width: 100px;
+    height: 35px;
+    font-family: "Roboto", sans-serif;
 }
 
 .normal {background: #A8A77A;}
@@ -118,15 +127,20 @@
     line-height: 1.4;
     color: #020166;
 }
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    font-size: 18px;
-    color: #020166;
+.stats-title{
+    margin-top: 100px;
 }
 
-.total-stats{
+.stats-grid {
     margin-top: 10px;
-    font-weight: bold;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    font-size: 18px;
+    color: #020166;
+    font-family: "Roboto", sans-serif;
+}
+
+.stats-single{
+    margin: 2px;
 }
