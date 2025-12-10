@@ -5,12 +5,11 @@ import type { PokemonDetailsResponse, PokemonSpeciesResponse, PokemonFullInfo } 
 import PokemonDetailsCard from "../components/PokemonDetailsCard/PokemonDetailsCard";
 import Header from "../components/Header/Header";
 import "./PokemonDetailsPage.css";
+import { mapPokemonData } from "../utils/pokemonMapper";
 
 export default function PokemonDetailsPage () {
     const { id } = useParams();
 
-    const [details, setDetails] = useState<PokemonDetailsResponse | null>(null);
-    const [species, setSpecies] = useState<PokemonSpeciesResponse | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [isFavorite, setIsFavorite] = useState(false);
@@ -26,34 +25,8 @@ export default function PokemonDetailsPage () {
 
                 const detailsData = await getPokemonDetails(id);
                 const speciesData = await getPokemonSpeicies(id);
-
-                setDetails(detailsData);
-                setSpecies(speciesData);
-
-                const description =
-                    speciesData.flavor_text_entries.find(
-                        (entry) => entry.language.name === "en"
-                    )?.flavor_text.replace(/\n|\f/g, " ") ??
-                    "No description available.";
-
-                const totalStats = detailsData.stats.reduce(
-                    (sum, s) => sum + s.base_stat,
-                    0
-                );
-
-                const fullInfo: PokemonFullInfo = {
-                    id: detailsData.id,
-                    name: detailsData.name,
-                    image: detailsData.sprites.front_default ?? "",
-                    types: detailsData.types.map((t) => t.type.name),
-                    description,
-                    stats: detailsData.stats.map((s) => ({
-                        name: s.stat.name,
-                        value: s.base_stat,
-                    })),
-                    totalStats,
-                };
-
+                const fullInfo = mapPokemonData(detailsData, speciesData);
+                
                 setPokemon(fullInfo);
 
             } catch (err) {
