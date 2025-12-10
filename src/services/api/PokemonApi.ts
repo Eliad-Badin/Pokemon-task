@@ -7,9 +7,10 @@ import type {
     PokemonStat
     } from "../../types/PokemonTypes";
 
-import { BASE_URL } from "../../utils/Strings";
+const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
 export async function getPokemonList(limit: number, offset: number) : Promise<PokemonListResponse>{ 
+    console.log ("BASE_URL:", BASE_URL);
     const response = await fetch (`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
     if (!response.ok)
         throw new Error("Failed to fetch Pokemon list!");
