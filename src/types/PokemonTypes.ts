@@ -45,6 +45,7 @@ export interface SimplePokemon {
     name: string;
     image: string;
     types: string[];
+    location: PokemonLocation;
 }
 
 export interface PokemonStat {
@@ -60,4 +61,12 @@ export interface PokemonFullInfo {
     description: string;
     stats: PokemonStat[];
     totalStats: number;
+    location: PokemonLocation;
+}
+
+//location types
+
+export interface PokemonLocation {
+    lat: number;
+    lng: number;
 }

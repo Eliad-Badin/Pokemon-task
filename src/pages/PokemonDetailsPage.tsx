@@ -6,6 +6,7 @@ import PokemonDetailsCard from "../components/PokemonDetailsCard/PokemonDetailsC
 import Header from "../components/Header/Header";
 import "./PokemonDetailsPage.css";
 import { mapPokemonData } from "../utils/pokemonMapper";
+import PokemonMap from "../components/PokemonMap/PokemonMap";
 
 export default function PokemonDetailsPage () {
     const { id } = useParams();
@@ -59,6 +60,7 @@ export default function PokemonDetailsPage () {
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
             />
+            <PokemonMap pokemonLocation={pokemon.location}/>
         </div>
     );
 }
