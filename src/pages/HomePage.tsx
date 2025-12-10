@@ -2,9 +2,10 @@ import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import PokemonCard from "../components/PokemonCard/PokemonCard";
 import "./HomePage.css"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import type { SimplePokemon } from "../types/PokemonTypes";
 import { GetSimplePokemonList } from "../services/api/PokemonApi";
+import { filterPokemons } from "../utils/pokemonFiter";
 
 export default function HomePage(){
     const initialLoad = useRef (false);
@@ -15,14 +16,8 @@ export default function HomePage(){
     const [error, setError] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
 
-    const displayedPokemons = pokemons.filter(p => {
-        const term = searchTerm.toLowerCase();
-        const matchByName = p.name.toLowerCase().includes(term);
-        const matchById = String(p.id).includes(term);
-        const matchByType = p.types.some(t => t.toLowerCase().includes(term));
-        
-        return matchByName || matchById || matchByType;
-    });
+    const displayedPokemons = useMemo(() => 
+        filterPokemons(pokemons, searchTerm), [pokemons, searchTerm]);
 
     useEffect(() => {
         if (!initialLoad.current){
