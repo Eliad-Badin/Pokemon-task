@@ -1,0 +1,43 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-content {
+  margin-top: 100px; 
+  width: 90%;
+  max-width: 1200px;
+}
+
+ .pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 20px;
+    justify-items: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.load-more-btn {
+  margin: 30px auto;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--headerBg);
+  color: var(--headerBg);
+  cursor: pointer;
+  font-size: 18px;
+  align-content: center;
+  margin-top: 40px;
+  width: 150px;
+  background-color: var(--white);
+  
+  
+
+
+}
+
+.load-more-btn:hover {
+  background-color: var(--loadMoreBtnHoverBg);
+}
