@@ -1,5 +1,6 @@
 import pokedexLogo from '../../assets/shared/pokedexLogo.png'
 import "./Header.css"
+import { HOME, FAVORITES } from '../../utils/Strings';
 
 export default function Header() {
     return (
@@ -9,8 +10,8 @@ export default function Header() {
             </div>
 
             <nav className="header-right">
-                <button className="nav-btn-active">Home</button>
-                <button className="nav-btn">Favorites</button>
+                <button className="nav-btn-active">{HOME}</button>
+                <button className="nav-btn">{FAVORITES}</button>
             </nav>
         </header>
     );

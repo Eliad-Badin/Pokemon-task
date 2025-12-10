@@ -11,14 +11,15 @@
     width: 341px;
     height: 36px;
     border-radius: 9px;
-    border: 1px solid rgba(2, 1, 102, 0.5);
+    border: 1px solid var(--headerBg);
 }
 
 .search-btn{
-    background-color: rgba(55, 50, 153, 1);
-    color: #FFFFFF;
+    background-color: var(--headerBg);
+    color: var(--white);
     margin-left: 5px;
     border-radius: 9px;
     width: 87px;
     height: 36px;
+    cursor: pointer;
 }

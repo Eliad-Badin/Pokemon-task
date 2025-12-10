@@ -1,8 +1,8 @@
 .pokemon-details-card{
     width: 844px;
     min-height: 342px;
-    background: #F7F7F9;
-    border: 1px solid #e3e3e3;
+    background: var(--detailsCardBg);
+    border: 1px solid var(--detailsCardBorder);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -20,7 +20,7 @@
 }
 
 .pokemon-id{
-    color: #373299;
+    color: var(--textColor);
     margin: 0;
 
 }
@@ -64,7 +64,7 @@
 .details-name{
     font-size: 32px;
     line-height: 100%;
-    color: #373299;
+    color: var(--textColor);
     font-family: "Roboto", sans-serif;
     margin: 3px;
 }
@@ -78,7 +78,7 @@
 .type-badge{
     padding: 4px 12px;
     border-radius: 9px;
-    color: white;
+    color: var(--white);
     font-size: 22px;
     line-height: 100%;
     text-align: center;
@@ -87,28 +87,28 @@
     font-family: "Roboto", sans-serif;
 }
 
-.normal {background: #A8A77A;}
-.water {background: #6390F0;}
-.fire {background: #EE8130;}
-.electric {background: #F7D02C;}
-.grass {background: #7AC74C;}
-.ice {background: #96D9D6;}
-.fighting {background: #C22E28;}
-.poison {background: #A33EA1;}
-.ground {background: #E2BF65;}
-.flying {background: #A98FF3;}
-.psychic {background: #F95587;}
-.bug {background: #A6B91A;}
-.rock {background: #B6A136;}
-.ghost {background: #735797;}
-.dragon {background: #6F35FC;}
-.dark {background: #705746;}
-.steel {background: #B7B7CE;}
-.fairy {background: #D685AD;}
+.normal {background: (var(--normalBadgeBg));}
+.water {background: var(--waterBadgeBg);}
+.fire {background: var(--fireBadgeBg);}
+.electric {background: var(--electricBadgeBg);}
+.grass {background: var(--grassBadgeBg);}
+.ice {background: var(--iceBadgeBg);}
+.fighting {background: var(--fightingBadgeBg);}
+.poison {background: var(--poisonBadgeBg);}
+.ground {background: var(--groundBadgeBg);}
+.flying {background: var(--flyingBadgeBg);}
+.psychic {background: var(--psychicBadgeBg);}
+.bug {background: var(--bugBadgeBg);}
+.rock {background: var(--rockBadgeBg);}
+.ghost {background: var(--ghostBadgeBg);}
+.dragon {background: var(--dragonBadgeBg);}
+.dark {background: var(--darkBadgeBg);}
+.steel {background: var(--steelBadgeBg);}
+.fairy {background: var(--fairyBadgeBg);}
 
 .vertical-divider{
     width: 1px;
-    background-color: #e5e5e5;
+    background-color: var(--detailsDividerBg);
     margin: 0 10px;
 }
 
@@ -118,14 +118,14 @@
 
 .right-side h3{
     margin-bottom: 8px;
-    color: #373299;
+    color: var(--textColor);
 }
 
 .description-text{
     margin-bottom: 20px;
     max-width: 450px;
     line-height: 1.4;
-    color: #020166;
+    color: var(--headerBg);
 }
 .stats-title{
     margin-top: 100px;

@@ -24,14 +24,14 @@
   display: block;
   padding: 10px 15px;
   border-radius: 10px;
-  border: 1px solid rgba(55, 50, 153, 1);
-  color: rgba(55, 50, 153, 1);
+  border: 1px solid var(--headerBg);
+  color: var(--headerBg);
   cursor: pointer;
   font-size: 18px;
   align-content: center;
   margin-top: 40px;
   width: 150px;
-  background-color: white;
+  background-color: var(--white);
   
   
 
@@ -39,5 +39,5 @@
 }
 
 .load-more-btn:hover {
-  background-color: #3142c3;
+  background-color: var(--loadMoreBtnHoverBg);
 }
