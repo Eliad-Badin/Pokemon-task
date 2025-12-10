@@ -1,6 +1,6 @@
-import type { Pokemon } from '../types/pokemon';
+import type { SimplePokemon } from '../types/PokemonTypes';
 
-export function filterPokemons(pokemons: Pokemon[], searchTerm: string): Pokemon[] {
+export function filterPokemons(pokemons: SimplePokemon[], searchTerm: string): SimplePokemon[] {
     const term = searchTerm.toLowerCase();
     return pokemons.filter(p => {
         const matchByName = p.name.toLowerCase().includes(term);

@@ -5,7 +5,7 @@ import "./HomePage.css"
 import { useState, useEffect, useRef, useMemo } from "react";
 import type { SimplePokemon } from "../types/PokemonTypes";
 import { GetSimplePokemonList } from "../services/api/PokemonApi";
-import { filterPokemons } from "../utils/pokemonFiter";
+import { filterPokemons } from "../utils/pokemonFilter";
 
 export default function HomePage(){
     const initialLoad = useRef (false);
