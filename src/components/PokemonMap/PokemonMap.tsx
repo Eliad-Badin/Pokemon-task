@@ -1,66 +1,78 @@
-import "./PokemonMap.css"
-import {GoogleMap, Marker, useJsApiLoader, DirectionsRenderer} from "@react-google-maps/api";
+import "./PokemonMap.css";
+import {
+  GoogleMap,
+  Marker,
+  DirectionsRenderer,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import type { PokemonLocation } from "../../types/PokemonTypes";
-import { useState } from "react";
+import { usePokemonDirections } from "../../hooks/usePokemonDirections";
 
 interface PokemonMapProps {
-    pokemonLocation: PokemonLocation;
+  pokemonLocation: PokemonLocation;
 }
 
-const MOVEO_OFFICE = { lat: 32.064, lng: 34.773 };
-
 export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
-    const {isLoaded} = useJsApiLoader ({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY, 
-    });
-    const [directionsResponse, setDirectionsResponse] = useState<google.maps.DirectionsResult | null>(null);
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+  });
 
-    function calculateRoute(
-        mode: google.maps.TravelMode = google.maps.TravelMode.DRIVING
-    ) {
-        if (!pokemonLocation) return;
-        const directionsService = new google.maps.DirectionsService();
-        directionsService.route(
-            {
-                origin: pokemonLocation,
-                destination: MOVEO_OFFICE,
-                travelMode: mode,
-            },
-            (result, status) => {
-                if (status === google.maps.DirectionsStatus.OK && result) {
-                    setDirectionsResponse(result);
-                } else {
-                    console.error("Directions request failed due to ",  status);
-                }
-            }
-        );
-    }
+  const {
+    directions,
+    mode,
+    isCaulculating,
+    error,
+    requestDirections,
+  } = usePokemonDirections(pokemonLocation);
 
-    if (!isLoaded) return <div>Loading map..</div>
+  if (!isLoaded) return <div>Loading map..</div>;
 
-    return(
-        <div className="map-container">
-            <div className="map-controls">
-                <button onClick={() => calculateRoute(google.maps.TravelMode.DRIVING)}>Driving</button>
-                <button onClick={() => calculateRoute(google.maps.TravelMode.WALKING)}>Walking</button>
-                <button onClick={() => calculateRoute(google.maps.TravelMode.BICYCLING)}>Bicycling</button>
-                <button onClick={() => calculateRoute(google.maps.TravelMode.TRANSIT)}>Transit</button>
-            </div>
-            <GoogleMap 
-                zoom={14}
-                center={pokemonLocation}
-                mapContainerStyle={{width: "90%", height: "400px"}}
-                >
-                <Marker position={pokemonLocation} />    
-                <Marker position={MOVEO_OFFICE} />    
+  return (
+    <div className="map-container">
+      <div className="map-controls">
+        <button
+          onClick={() => requestDirections("DRIVING")}
+          disabled={isCaulculating}
+        >
+          {directions ? "Recalculate directions" : "Directions"}
+        </button>
 
-                {directionsResponse && (
-                    <DirectionsRenderer 
-                        directions={directionsResponse}
-                        options={{suppressMarkers: true}} />
-                )}
-            </GoogleMap>
-            
-        </div>
-    )
+        {directions && (
+          <div className="mode-selector">
+            <span>Mode:</span>
+            <select
+              value={mode}
+              onChange={(e) =>
+                requestDirections(e.target.value as typeof mode)
+              }
+            >
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="BICYCLING">Bicycling</option>
+              <option value="TRANSIT">Transit</option>
+            </select>
+          </div>
+        )}
+
+        {error && <div className="map-error">{error}</div>}
+      </div>
+
+      <GoogleMap
+        zoom={14}
+        center={pokemonLocation}
+        mapContainerStyle={{ width: "90%", height: "400px" }}
+      >
+
+        <Marker position={pokemonLocation} />
+        <Marker position={{ lat: 32.064, lng: 34.773 }} />
+
+        {directions && (
+          <DirectionsRenderer
+            directions={directions}
+            options={{ suppressMarkers: true }}
+          />
+        )}
+      </GoogleMap>
+    </div>
+  );
 }
