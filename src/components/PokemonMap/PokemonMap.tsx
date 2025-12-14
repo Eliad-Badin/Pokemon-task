@@ -33,14 +33,15 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
         <button
           onClick={() => requestDirections("DRIVING")}
           disabled={isCaulculating}
+          className="directions-btn"
         >
           {directions ? "Recalculate directions" : "Directions"}
         </button>
 
         {directions && (
           <div className="mode-selector">
-            <span>Mode:</span>
-            <select
+            <span className="mode-title">Mode:</span>
+            <select className="select-menu"
               value={mode}
               onChange={(e) =>
                 requestDirections(e.target.value as typeof mode)
@@ -60,7 +61,7 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
       <GoogleMap
         zoom={14}
         center={pokemonLocation}
-        mapContainerStyle={{ width: "90%", height: "400px" }}
+        mapContainerStyle={{ width: "100%", height: "500px" }}
       >
 
         <Marker position={pokemonLocation} />
