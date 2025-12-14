@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-content {
   margin-top: 100px; 
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
  .pokemon-grid {
@@ -19,8 +25,14 @@
     width: 100%;
 }
 
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .load-more-btn {
-  margin: 30px auto;
+  position: flex;
   display: block;
   padding: 10px 15px;
   border-radius: 10px;
@@ -32,10 +44,6 @@
   margin-top: 40px;
   width: 150px;
   background-color: var(--white);
-  
-  
-
-
 }
 
 .load-more-btn:hover {
