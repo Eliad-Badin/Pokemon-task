@@ -3,3 +3,12 @@
     margin-top: 85px;
     margin-left: 75px;
 }
+
+
+@media (max-width: 768px) {
+    .back-link{
+        margin-left: 0px;
+        margin-top: 30px;
+
+    }
+}

@@ -61,7 +61,21 @@
     }
 
     .directions-btn, .select-menu {
-        font-size: 14px;
-        padding: 8px 16px;
+        font-size: 1rem;
+        padding: 5px 0px
+        
+    }
+
+    .select-menu{
+        position: relative;
+        
+    }
+
+    .map-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: relative;
     }
 }

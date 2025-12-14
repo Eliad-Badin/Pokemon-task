@@ -57,23 +57,24 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
 
         {error && <div className="map-error">{error}</div>}
       </div>
+    <div className="map-wrapper">
+        <GoogleMap
+            zoom={14}
+            center={pokemonLocation}
+            mapContainerStyle={{ width: "100%", height: "500px" }}
+        >
 
-      <GoogleMap
-        zoom={14}
-        center={pokemonLocation}
-        mapContainerStyle={{ width: "100%", height: "500px" }}
-      >
+            <Marker position={pokemonLocation} />
+            <Marker position={{ lat: 32.064, lng: 34.773 }} />
 
-        <Marker position={pokemonLocation} />
-        <Marker position={{ lat: 32.064, lng: 34.773 }} />
-
-        {directions && (
-          <DirectionsRenderer
-            directions={directions}
-            options={{ suppressMarkers: true }}
-          />
-        )}
-      </GoogleMap>
+            {directions && (
+            <DirectionsRenderer
+                directions={directions}
+                options={{ suppressMarkers: true }}
+            />
+            )}
+        </GoogleMap>
+      </div>
     </div>
   );
 }
