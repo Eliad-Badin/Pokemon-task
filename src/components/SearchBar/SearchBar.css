@@ -23,3 +23,19 @@
     height: 36px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .search-bar-container{
+        flex-direction: column;
+    }
+
+    .search-input{
+        width: 70%;
+        margin-bottom: 5px;
+    }
+
+    .search-btn{
+        width: 100px;
+    }
+    
+}

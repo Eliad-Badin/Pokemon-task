@@ -1,0 +1,81 @@
+.map-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 80%;
+    
+}
+
+.map-controls {
+    margin-bottom: 10px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.directions-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px var(--textColor) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--white);
+    color: var(--textColor);
+}
+
+.directions-btn:hover {
+    background-color: var(--textColor);
+    color: var(--white);
+}
+
+.mode-selector{
+    justify-content: center;
+    margin-left: 5px;
+    padding: 10px 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: var(--textColor);
+}
+
+
+.select-menu {
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px var(--textColor) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--textColor);
+}
+
+.select-menu:hover {
+    background-color: var(--textColor);
+    color: var(--white);
+}
+
+
+@media (max-width: 768px) {
+    .map-container {
+        width: 100%;
+    }
+
+    .directions-btn, .select-menu {
+        font-size: 1rem;
+        padding: 5px 0px
+        
+    }
+
+    .select-menu{
+        position: relative;
+        
+    }
+
+    .map-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+    }
+}
