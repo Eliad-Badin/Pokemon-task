@@ -38,9 +38,6 @@
     color: var(--textColor);
 }
 
-.mode-title {
-
-}
 
 .select-menu {
     margin-left: 5px;
@@ -55,4 +52,16 @@
 .select-menu:hover {
     background-color: var(--textColor);
     color: var(--white);
+}
+
+
+@media (max-width: 768px) {
+    .map-container {
+        width: 100%;
+    }
+
+    .directions-btn, .select-menu {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

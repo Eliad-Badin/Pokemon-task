@@ -59,3 +59,28 @@ header {
 .nav-btn:hover {
   background: rgba(255,255,255,0.15);
 }
+
+@media (max-width: 768px) {
+  header {
+    background-color: transparent;
+    height: auto;
+    padding: 12 16px;
+    justify-content: center;
+    position: static
+  }
+
+  .header-left {
+    margin-left: 0;
+    cursor: pointer;
+  }
+
+  .header-logo {
+    height: 45px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .header-right {
+    display: none;
+  }
+}

@@ -41,3 +41,15 @@
 .load-more-btn:hover {
   background-color: var(--loadMoreBtnHoverBg);
 }
+
+@media (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-content{
+    margin-top: 70px;
+    width: 100%;
+  }
+}

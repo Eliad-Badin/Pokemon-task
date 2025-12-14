@@ -144,3 +144,22 @@
 .stats-single{
     margin: 2px;
 }
+
+
+@media (max-width: 768px) {
+    .pokemon-details-card{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 80px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .details-content{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .left-side, .image-wrapper{
+        width: 100%;
+    }
+}
