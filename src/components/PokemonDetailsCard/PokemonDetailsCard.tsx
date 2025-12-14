@@ -47,9 +47,10 @@ export default function PokemonDetailsCard({
                 </div>
 
                 <div className="vertical-divider"></div>
+                <div className="horizontal-divider"/>
 
                 <div className="right-side">
-                    <h3>Description</h3>
+                    <h3 className="description-title">Description</h3>
                     <p className="description-text">{pokemon.description}</p>
 
                     <h3 className="stats-title">Stats</h3>

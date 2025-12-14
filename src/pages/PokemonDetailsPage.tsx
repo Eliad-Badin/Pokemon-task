@@ -49,7 +49,7 @@ export default function PokemonDetailsPage () {
     }
 
     return (
-        <div>
+        <div className="details-container">
             <Header />
             <Link to="/" className="back-link">
                 ← Home page
@@ -60,7 +60,9 @@ export default function PokemonDetailsPage () {
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
             />
-            <PokemonMap pokemonLocation={pokemon.location}/>
+
+                <PokemonMap pokemonLocation={pokemon.location}/>
+
         </div>
     );
 }

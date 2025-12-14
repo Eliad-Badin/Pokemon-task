@@ -5,10 +5,17 @@
 }
 
 
+
+
 @media (max-width: 768px) {
     .back-link{
         margin-left: 0px;
-        margin-top: 30px;
+        margin-top: 20px;
+        
 
+    }
+
+    .details-container{
+        justify-items: center;
     }
 }

@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <header>
             <div className="header-left">
-                <Link to="/">
+                <Link className="logo-link" to="/">
                 <img src={pokedexLogo} className="header-logo" />
                 </Link>
             </div>

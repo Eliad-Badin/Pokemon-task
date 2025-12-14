@@ -63,11 +63,12 @@ header {
 @media (max-width: 768px) {
   header {
     background-color: transparent;
-    height: auto;
+    height: 70px;
     padding: 12px 16px;
     justify-content: center;
     position: static;
     box-sizing: border-box;
+    display: inline-block;
   }
 
   .header-left {
@@ -78,10 +79,16 @@ header {
   }
 
   .header-logo {
-    height: 45px;
-    width: auto;
+    width: 100%;
+    height: auto;
     display: block;
     margin-top: 0 auto;
+    
+  }
+
+  .logo-link{
+    width: 80%;
+    padding: 5px;
   }
 
   .header-right {
