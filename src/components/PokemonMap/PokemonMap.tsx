@@ -61,7 +61,7 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
         <GoogleMap
             zoom={14}
             center={pokemonLocation}
-            mapContainerStyle={{ width: "100%", height: "500px" }}
+            mapContainerStyle={{ width: "100%", height: "min(55vh, 420px)" }}
         >
 
             <Marker position={pokemonLocation} />

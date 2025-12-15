@@ -8,6 +8,7 @@ import "./PokemonDetailsPage.css";
 import { mapPokemonData } from "../utils/pokemonMapper";
 import PokemonMap from "../components/PokemonMap/PokemonMap";
 import { useFavorites } from "../hooks/useFavorites";
+import MapModal from "../components/MapModal/MapModal";
 
 export default function PokemonDetailsPage() {
   const { id } = useParams();
@@ -15,6 +16,7 @@ export default function PokemonDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pokemon, setPokemon] = useState<PokemonFullInfo | null>(null);
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
   const { isFavorite, toggleFavorite } = useFavorites();
 
@@ -51,19 +53,32 @@ export default function PokemonDetailsPage() {
 
   return (
     <div className="details-container">
-      <Header />
+        <Header />
 
-      <Link to="/" className="back-link">
-        ← Home page
-      </Link>
+        <Link to="/" className="back-link">
+            ← Home page
+        </Link>
 
-      <PokemonDetailsCard
-        pokemon={pokemon}
-        isFavorite={favorite}
-        onToggleFavorite={handleToggleFavorite}
-      />
+        <PokemonDetailsCard
+            pokemon={pokemon}
+            isFavorite={favorite}
+            onToggleFavorite={handleToggleFavorite}
+        />
+        <div className="show-map-btn-wrapper">
+            <button className="show-map-btn" onClick={() => setIsMapOpen(true)}>
+                Show location on map
+            </button>
+        </div>
 
-      <PokemonMap pokemonLocation={pokemon.location} />
+        <MapModal
+        isOpen={isMapOpen}
+        title={`${pokemon.name} Location`}
+        onClose={() => setIsMapOpen(false)}
+        >
+            <PokemonMap pokemonLocation={pokemon.location} />
+        </MapModal>
+
+        
     </div>
   );
 }
