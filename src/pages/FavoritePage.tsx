@@ -7,6 +7,7 @@ import { useFavorites } from "../hooks/useFavorites";
 import { mapToSimplePokemon } from "../utils/pokemonMapper";
 import "./FavoritePage.css";
 import "./HomePage.css";
+import MobileNav from "../components/MobileNav/MobileNav";
 
 export default function FavoritePage() {
     const {favoriteIds, toggleFavorite} = useFavorites();
@@ -57,6 +58,7 @@ export default function FavoritePage() {
           </div>
         )}
       </div>
+      <MobileNav />
     </div>
 
     );

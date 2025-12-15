@@ -1,0 +1,36 @@
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav{
+        display: flex;
+        position: fixed;
+        left:0;
+        bottom:0;
+        right:0;
+        height: 56px;
+        background-color: var(--headerBg);
+        z-index: 2000;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .mobile-nav-btn, .mobile-nav-btn-active {
+        color: var(--white);
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    
+    }
+
+    .mobile-nav-btn-active {
+        background-color: var(--navBtnActiveBg);
+        color: var(--black);
+    }
+}

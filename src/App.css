@@ -9,6 +9,7 @@ body{
 @media (max-width: 768px) {
   body{
     margin-top: 35px;
+    padding-bottom: 56px;
   }
 
 

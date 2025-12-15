@@ -9,6 +9,7 @@ import { mapPokemonData } from "../utils/pokemonMapper";
 import PokemonMap from "../components/PokemonMap/PokemonMap";
 import { useFavorites } from "../hooks/useFavorites";
 import MapModal from "../components/MapModal/MapModal";
+import MobileNav from "../components/MobileNav/MobileNav";
 
 export default function PokemonDetailsPage() {
   const { id } = useParams();
@@ -77,8 +78,9 @@ export default function PokemonDetailsPage() {
         >
             <PokemonMap pokemonLocation={pokemon.location} />
         </MapModal>
+    
 
-        
+        <MobileNav />
     </div>
   );
 }
