@@ -10,6 +10,7 @@ import PokemonMap from "../components/PokemonMap/PokemonMap";
 import { useFavorites } from "../hooks/useFavorites";
 import MapModal from "../components/MapModal/MapModal";
 import MobileNav from "../components/MobileNav/MobileNav";
+import { HOME_PAGE_NAV, SHOW_ON_MAP_BTN, LOADING } from "../utils/Strings";
 
 export default function PokemonDetailsPage() {
   const { id } = useParams();
@@ -42,7 +43,7 @@ export default function PokemonDetailsPage() {
     loadPokemon();
   }, [id]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>{LOADING}</p>;
   if (error) return <p>{error}</p>;
   if (!pokemon) return null;
 
@@ -57,7 +58,7 @@ export default function PokemonDetailsPage() {
         <Header />
 
         <Link to="/" className="back-link">
-            ← Home page
+            {HOME_PAGE_NAV}
         </Link>
 
         <PokemonDetailsCard
@@ -67,7 +68,7 @@ export default function PokemonDetailsPage() {
         />
         <div className="show-map-btn-wrapper">
             <button className="show-map-btn" onClick={() => setIsMapOpen(true)}>
-                Show location on map
+                {SHOW_ON_MAP_BTN}
             </button>
         </div>
 

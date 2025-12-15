@@ -8,6 +8,7 @@ import { mapToSimplePokemon } from "../utils/pokemonMapper";
 import "./FavoritePage.css";
 import "./HomePage.css";
 import MobileNav from "../components/MobileNav/MobileNav";
+import { LOADING, NO_FAVORITES } from "../utils/Strings";
 
 export default function FavoritePage() {
     const {favoriteIds, toggleFavorite} = useFavorites();
@@ -41,9 +42,9 @@ export default function FavoritePage() {
         
 
         {isLoading ? (
-          <p>Loading...</p>
+          <p>{LOADING}</p>
         ) : favoritePokemons.length === 0 ? (
-          <p>Favorite List is Empty</p>
+          <p>{NO_FAVORITES}</p>
         ) : (
           <div className="pokemon-grid">
             {favoritePokemons.map((pokemon) => (

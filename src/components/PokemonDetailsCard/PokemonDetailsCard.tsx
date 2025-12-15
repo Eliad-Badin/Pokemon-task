@@ -2,6 +2,7 @@ import "./PokemonDetailsCard.css";
 import type { PokemonFullInfo } from "../../types/PokemonTypes";
 import HeartEmpty from '../../assets/shared/heart-white.png';
 import HeartFilled from '../../assets/shared/heart-red.png';
+import { DESCRIPTION, STATS, TOTAL } from "../../utils/Strings";
 
 interface PokemonDetailsCardProps {
     pokemon: PokemonFullInfo;
@@ -50,10 +51,10 @@ export default function PokemonDetailsCard({
                 <div className="horizontal-divider"/>
 
                 <div className="right-side">
-                    <h3 className="description-title">Description</h3>
+                    <h3 className="description-title">{DESCRIPTION}</h3>
                     <p className="description-text">{pokemon.description}</p>
 
-                    <h3 className="stats-title">Stats</h3>
+                    <h3 className="stats-title">{STATS}</h3>
                     <div className="stats-grid">
                         {pokemon.stats.map((stat) => (
                             <p key={stat.name} className="stats-single">
@@ -61,7 +62,7 @@ export default function PokemonDetailsCard({
                             </p>
                         ))}
                         <p className="stats-single">
-                            Total: {pokemon.totalStats}
+                            {TOTAL}{pokemon.totalStats}
                         </p>
                     </div>
                 </div>
