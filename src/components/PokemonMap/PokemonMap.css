@@ -54,6 +54,50 @@
     color: var(--white);
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  padding: 8px 12px;
+  border: 2px solid var(--textColor);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--textColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--textColor);
+}
+
+.dropdown-item:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+
 
 @media (max-width: 768px) {
     .map-container {

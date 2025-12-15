@@ -7,6 +7,12 @@ import {
 } from "@react-google-maps/api";
 import type { PokemonLocation } from "../../types/PokemonTypes";
 import { usePokemonDirections } from "../../hooks/usePokemonDirections";
+import { useState } from "react";
+import type { TravelModeName } from "../../hooks/usePokemonDirections";
+
+const modeLabel = (m: TravelModeName) => {
+    return m[0] + m.slice(1).toLowerCase();
+}
 
 interface PokemonMapProps {
   pokemonLocation: PokemonLocation;
@@ -25,6 +31,8 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
     requestDirections,
   } = usePokemonDirections(pokemonLocation);
 
+  const [open, setOpen] = useState(false);
+
   if (!isLoaded) return <div>Loading map..</div>;
 
   return (
@@ -39,20 +47,38 @@ export default function PokemonMap({ pokemonLocation }: PokemonMapProps) {
         </button>
 
         {directions && (
-          <div className="mode-selector">
-            <span className="mode-title">Mode:</span>
-            <select className="select-menu"
-              value={mode}
-              onChange={(e) =>
-                requestDirections(e.target.value as typeof mode)
-              }
-            >
-              <option value="DRIVING">Driving</option>
-              <option value="WALKING">Walking</option>
-              <option value="BICYCLING">Bicycling</option>
-              <option value="TRANSIT">Transit</option>
-            </select>
-          </div>
+    <div className="mode-selector">
+        <span className="mode-title">Mode:</span>
+
+        <div className="dropdown">
+        <button
+            type="button"
+            className="dropdown-btn"
+            onClick={() => setOpen((v) => !v)}
+        >
+            {modeLabel(mode)}
+            <span className="dropdown-caret">▾</span>
+        </button>
+
+        {open && (
+            <div className="dropdown-menu">
+            {(["DRIVING", "WALKING", "BICYCLING", "TRANSIT"] as const).map((m) => (
+                <button
+                key={m}
+                type="button"
+                className="dropdown-item"
+                onClick={() => {
+                    requestDirections(m);
+                    setOpen(false);
+                }}
+                >
+                {modeLabel(m)}
+                </button>
+            ))}
+            </div>
+        )}
+        </div>
+    </div>
         )}
 
         {error && <div className="map-error">{error}</div>}
