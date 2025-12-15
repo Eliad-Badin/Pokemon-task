@@ -66,11 +66,9 @@ header {
   header {
     background-color: transparent;
     height: 70px;
-    padding: 12px 16px;
     justify-content: center;
     position: static;
-    box-sizing: border-box;
-    display: inline-block;
+    padding: 0 10px;
   }
 
   .header-left {
@@ -81,10 +79,11 @@ header {
   }
 
   .header-logo {
-    width: 100%;
+    width: 90%;
     height: auto;
     display: block;
     margin-top: 0 auto;
+    justify-self: center;
     
   }
 

@@ -5,3 +5,11 @@ body{
 .page-content {
   margin-top: 80px;
 }
+
+@media (max-width: 768px) {
+  body{
+    margin-top: 35px;
+  }
+
+
+}
