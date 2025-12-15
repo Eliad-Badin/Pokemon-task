@@ -22,6 +22,24 @@
     transform: translateY(-3px);
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.remove-icon-btn{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.remove-icon-btn:hover{
+    border: 1px solid var(--textColor);
+}
+
 .pokemon-id {
     font-size: 22px;
     color: var(--textColor);
