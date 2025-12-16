@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    width: 80%;
+    width: 95%;
+    justify-self: center;
     
 }
 
@@ -31,7 +32,8 @@
 
 .mode-selector{
     justify-content: center;
-    margin-left: 5px;
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
     font-family: "Roboto", sans-serif;
     font-size: 16px;

@@ -26,5 +26,6 @@ export const COLORS = {
     fairyBadgeBg: '#D685AD',
     detailsDividerBg: '#E5E5E5',
     loadMoreBtnHoverBg: '#3142c3',
+    mapModalBg: 'rgba(0, 0, 0, 0.45)',
 
 };

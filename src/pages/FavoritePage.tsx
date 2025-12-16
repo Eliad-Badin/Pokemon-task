@@ -16,19 +16,31 @@ export default function FavoritePage() {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        let canceled = false;
+
         async function loadFavorites() {
             setIsLoading(true);
             try {
                 const details = await Promise.all(
                     favoriteIds.map(id => getPokemonDetails(id))
                 );
-                setFavoritePokemons(details.map(mapToSimplePokemon));
+                if (!canceled) {
+                    setFavoritePokemons(details.map(mapToSimplePokemon));
+                }
             } finally{
-                setIsLoading(false);
+                if (!canceled) {
+                    setIsLoading(false);
+                }
             }
         }
 
+        if (favoriteIds.length === 0) {
+            setFavoritePokemons([]);
+            return;
+        }
+
         loadFavorites();
+        return () => { canceled = true; };
     }, [favoriteIds]);
 
     function removeFromFavorites(id: number) {

@@ -28,8 +28,8 @@ export default function MapModal({ isOpen, title, onClose, children }: MapModalP
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onMouseDown={onClose}>
-      <div className="modal-content" onMouseDown={(e) => e.stopPropagation()}>
+    <div className="modal-overlay" >
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           {title && <h3 className="modal-title">{title}</h3>}
           <button className="modal-close-btn" onClick={onClose} aria-label="Close">

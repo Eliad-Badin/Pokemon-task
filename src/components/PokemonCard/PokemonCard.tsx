@@ -22,7 +22,7 @@ export default function PokemonCard({pokemon, onRemove} : PokemonCardProps) {
                 aria-label="Remove from favorites"
                 onClick={(e) => {
                   e.preventDefault();
-                  e.stopPropagation
+                  e.stopPropagation();
                   onRemove();
                 }}>
                 <img src={removeIcon} alt="Remove icon" className="remove-icon" />
