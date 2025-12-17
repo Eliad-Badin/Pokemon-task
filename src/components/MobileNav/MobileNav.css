@@ -1,0 +1,19 @@
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav{
+        display: flex;
+        position: fixed;
+        left:0;
+        bottom:0;
+        right:0;
+        height: 56px;
+        background-color: var(--headerBg);
+        z-index: 20;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+}

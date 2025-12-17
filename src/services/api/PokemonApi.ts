@@ -6,6 +6,7 @@ import type {
     PokemonFullInfo,
     PokemonStat
     } from "../../types/PokemonTypes";
+import { mapPokemonData, mapToSimplePokemon } from "../../utils/pokemonMapper";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
@@ -34,54 +35,6 @@ export async function getPokemonSpeicies (idOrName: string | number): Promise<Po
     return response.json();
 }
 
-function mapToSimplePokemon(details: PokemonDetailsResponse): SimplePokemon {
-    const image =
-        details.sprites.front_default ??
-        details.sprites.other?.["official-artwork"]?.front_default ??
-        "";
-
-    return {
-        id: details.id,
-        name: details.name,
-        image,
-        types: details.types.map (t => t.type.name),
-    };
-}
-
-function mapToPokemonFullInfo(
-    details: PokemonDetailsResponse,
-    species: PokemonSpeciesResponse
-): PokemonFullInfo {
-    const englishEntry = species.flavor_text_entries.find(
-        entry => entry.language.name ==="en");
-    
-    const description = englishEntry ? 
-    englishEntry.flavor_text.replace(/\s+/g, " ") : "No description available.";
-
-    const stats: PokemonStat[] = details.stats.map (s => ({
-        name: s.stat.name,
-        value: s.base_stat,
-    }));
-
-    const totalStats = stats.reduce((sum, s) => sum + s.value, 0);
-
-    
-    const image =
-        details.sprites.front_default ??
-        details.sprites.other?.["official-artwork"]?.front_default ??
-        "";
-
-    return {
-        id: details.id,
-        name: details.name,
-        image,
-        types: details.types.map(t => t.type.name),
-        description,
-        stats,
-        totalStats,
-    };
-}
-
 export async function GetSimplePokemonList(limit: number, offset: number):
 Promise<SimplePokemon[]> {
     const list = await getPokemonList(limit, offset);
@@ -95,5 +48,5 @@ Promise<PokemonFullInfo> {
     const details = await getPokemonDetails(idOrName);
     const species = await getPokemonSpeicies(idOrName);
 
-    return mapToPokemonFullInfo(details, species);
+    return mapPokemonData(details, species);
 }

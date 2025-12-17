@@ -26,36 +26,43 @@ header {
 }
 
 .header-right {
-  margin-right: 100px;
+  margin-right: 120px;
   display: flex;
   align-items: stretch;    
-
   height: 100%;
 }
 
-.nav-btn,
-.nav-btn-active {
-  height: 100%;
-  width: 92px;
-  gap: 10px;
-  padding: 24px;
-  display: flex;
-  align-items: center;    
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--white);
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-}
+@media (max-width: 768px) {
+  header {
+    background-color: transparent;
+    height: 70px;
+    justify-content: center;
+    position: static;
+    padding: 0 10px;
+  }
 
-.nav-btn-active {
-  background-color: var(--navBtnActiveBg);
-  color: var(--black);
-  border: none;
-}
+  .header-left {
+    margin-left: 0;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+  }
 
-.nav-btn:hover {
-  background: rgba(255,255,255,0.15);
+  .header-logo {
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-top: 0 auto;
+    justify-self: center;
+    
+  }
+
+  .logo-link{
+    width: 80%;
+    padding: 5px;
+  }
+
+  .header-right {
+    display: none;
+  }
 }

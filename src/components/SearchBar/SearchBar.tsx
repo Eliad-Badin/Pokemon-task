@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SearchBar.css";
+import { SEARCH } from "../../utils/Strings";
 
 interface SearchBarProps {
     onSearch: (value: string) => void;
@@ -17,7 +18,7 @@ export default function SerachBar({onSearch}: SearchBarProps){
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 />
-            <button className="search-btn" onClick={() => onSearch(value)}>Search</button>
+            <button className="search-btn" onClick={() => onSearch(value)}>{SEARCH}</button>
         </div>
     );
 }

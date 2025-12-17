@@ -1,7 +1,16 @@
 body{
-  margin-top: 90px;
+  margin-top: 30px;
 }
 
 .page-content {
   margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  body{
+    margin-top: 10%;
+    padding-bottom: 56px;
+  }
+
+
 }

@@ -1,4 +1,5 @@
-import type { PokemonDetailsResponse, PokemonSpeciesResponse, PokemonFullInfo } from "../types/PokemonTypes";
+import type { PokemonDetailsResponse, PokemonSpeciesResponse, PokemonFullInfo, SimplePokemon } from "../types/PokemonTypes";
+import { getOrCreatePokemonLocation } from "./LocationUtils";
 
 export function mapPokemonData (
     detailsData: PokemonDetailsResponse,
@@ -15,6 +16,8 @@ export function mapPokemonData (
         0
     );
 
+    const location = getOrCreatePokemonLocation(detailsData.id);
+
     return {
         id: detailsData.id,
         name: detailsData.name,
@@ -26,5 +29,22 @@ export function mapPokemonData (
             value: s.base_stat,
         })),
         totalStats,
+        location,
     };
 } 
+
+export function mapToSimplePokemon(details: PokemonDetailsResponse): SimplePokemon {
+    const image =
+        details.sprites.front_default ??
+        details.sprites.other?.["official-artwork"]?.front_default ??
+        "";
+        
+    const location = getOrCreatePokemonLocation(details.id);
+    return {
+        id: details.id,
+        name: details.name,
+        image,
+        types: details.types.map (t => t.type.name),
+        location,
+    };
+}
