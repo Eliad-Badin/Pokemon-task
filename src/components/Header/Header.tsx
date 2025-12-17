@@ -1,20 +1,20 @@
 import pokedexLogo from '../../assets/shared/pokedexLogo.png'
 import "./Header.css"
 import { HOME, FAVORITES } from '../../utils/Strings';
-import { Link } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
+import NavLinks from '../NavLinks/NavLinks';
 
 export default function Header() {
     return (
         <header>
             <div className="header-left">
-                <Link to="/">
+                <Link className="logo-link" to="/">
                 <img src={pokedexLogo} className="header-logo" />
                 </Link>
             </div>
 
             <nav className="header-right">
-                <button className="nav-btn-active">{HOME}</button>
-                <button className="nav-btn">{FAVORITES}</button>
+                <NavLinks />
             </nav>
         </header>
     );

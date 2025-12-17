@@ -4,7 +4,7 @@
 }
 
 .pokemon-card {
-    background: var(--white);
+    background: rgba(247, 247, 249, 1);
     border-radius: 12px;
     padding: 0.75rem;
     text-align: center;
@@ -20,6 +20,24 @@
 
 .pokemon-card:hover {
     transform: translateY(-3px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.remove-icon-btn{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.remove-icon-btn:hover{
+    border: 1px solid var(--textColor);
 }
 
 .pokemon-id {

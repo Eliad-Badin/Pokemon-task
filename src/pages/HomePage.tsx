@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import type { SimplePokemon } from "../types/PokemonTypes";
 import { GetSimplePokemonList } from "../services/api/PokemonApi";
 import { filterPokemons } from "../utils/pokemonFilter";
+import MobileNav from "../components/MobileNav/MobileNav";
 
 export default function HomePage(){
     const initialLoad = useRef (false);
@@ -56,6 +57,7 @@ export default function HomePage(){
                 <button onClick={loadMorePokemons} disabled={isLoading} className="load-more-btn">
                 {isLoading ? "Loading..." : "Load more..."}
                 </button>
+                <MobileNav />
             </div>
         </div>
         </div>

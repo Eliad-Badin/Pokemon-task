@@ -4,11 +4,45 @@
     margin-left: 75px;
 }
 
+.show-map-btn-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 844px;
+    margin-left: 70px
+}
+
+.show-map-btn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px var(--textColor) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--textColor);
+    justify-self: center;
+}
+
+.show-map-btn:hover {
+    background-color: var(--textColor);
+    color: var(--white);
+}
+
+
 
 @media (max-width: 768px) {
     .back-link{
         margin-left: 0px;
-        margin-top: 30px;
-
+        margin-top: 20px;
+    }
+    .details-container{
+        justify-items: center;
+    }
+    .show-map-btn-wrapper{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .show-map-btn{
+        width: 60%;
     }
 }
