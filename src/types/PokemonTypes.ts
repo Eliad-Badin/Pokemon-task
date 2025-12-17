@@ -39,7 +39,6 @@ export interface PokemonSpeciesResponse {
     }[];
 }
 
-//Types that are UI friendly
 export interface SimplePokemon {
     id: number;
     name: string;
@@ -63,8 +62,6 @@ export interface PokemonFullInfo {
     totalStats: number;
     location: PokemonLocation;
 }
-
-//location types
 
 export interface PokemonLocation {
     lat: number;
